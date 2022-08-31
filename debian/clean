@@ -1,0 +1,4 @@
+.qmake.cache
+debian/qttools5-dev-tools.install
+debian/qttools5-dev.install
+doc/assistant.qch

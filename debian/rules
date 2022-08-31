@@ -1,0 +1,94 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+include /usr/share/dpkg/default.mk
+
+export QT_SELECT := qt5
+export LLVM_INSTALL_DIR := $(shell llvm-config --prefix)
+
+# Archs that do not build depend on QtWebkit do not ship qwebview.
+qwebview_archs := alpha amd64 arm64 armel armhf i386 mips64el mipsel ppc64 ppc64el riscv64 s390x sh4 sw64 x32
+
+%:
+	dh $@ --with pkgkde_symbolshelper
+
+build-doc-tools:
+	# Build qdoc, qhelpgenerator and qtattributionsscanner tools
+	cd src; qmake CONFIG+=disable_external_rpath DEFINES+=QDOC_PASS_ISYSTEM
+	dh_auto_build -- -Csrc sub-qdoc sub-qtattributionsscanner
+	cd src/assistant; qmake
+	dh_auto_build -- -Csrc/assistant sub-qhelpgenerator
+
+override_dh_auto_build-indep: build-doc-tools
+	cd src/qdoc; qmake
+	cd src/assistant/help; qmake
+	dh_auto_build -- docs
+
+ifeq ($(DEB_HOST_ARCH),$(DEB_BUILD_ARCH))
+ifneq (,$(filter qdoc-qt5,$(shell dh_listpackages)))
+override_dh_auto_build-arch: build-doc-tools
+	# Rebuild the internal assistant.qch which is used as a resource
+	cd src/assistant/assistant/doc/internal; qmake
+	dh_auto_build -- -Csrc/assistant/assistant/doc/internal docs
+	mv doc/assistant.qch src/assistant/assistant/assistant.qch
+	dh_auto_build
+endif
+endif
+
+override_dh_auto_install-indep:
+	dh_auto_build -- INSTALL_ROOT=$(CURDIR)/debian/tmp install_docs
+
+execute_after_dh_auto_install-arch:
+	# Reproducible builds: remove build path from the prl files.
+	sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' debian/tmp/usr/lib/${DEB_HOST_MULTIARCH}/libQt5*.prl
+
+override_dh_install:
+ifeq (,$(filter $(DEB_HOST_ARCH),$(qwebview_archs)))
+	grep -v qwebview debian/qttools5-dev-tools.install.in >> debian/qttools5-dev-tools.install
+else
+	cp debian/qttools5-dev-tools.install.in debian/qttools5-dev-tools.install
+endif
+ifeq (,$(filter qdoc-qt5,$(shell dh_listpackages)))
+	grep -v Qt5DocToolsConfig debian/qttools5-dev.install.in > debian/qttools5-dev.install
+else
+	cp debian/qttools5-dev.install.in debian/qttools5-dev.install
+endif
+	dh_install
+
+	# assistant icons
+	install -D -p -m0644 src/assistant/assistant/images/assistant-128.png \
+		debian/qt5-assistant/usr/share/icons/hicolor/128x128/apps/assistant-qt5.png
+	install -D -p -m0644 src/assistant/assistant/images/assistant.png \
+		debian/qt5-assistant/usr/share/icons/hicolor/32x32/apps/assistant-qt5.png
+	# designer icons
+	install -D -p -m0644 src/designer/src/designer/images/designer.png \
+		debian/qttools5-dev-tools/usr/share/icons/hicolor/128x128/apps/designer-qt5.png
+	# linguist icons
+	install -D -p -m0644 src/linguist/linguist/images/icons/linguist-16-32.png \
+		debian/qttools5-dev-tools/usr/share/icons/hicolor/16x16/apps/linguist-qt5.png
+	install -D -p -m0644 src/linguist/linguist/images/icons/linguist-32-32.png \
+		debian/qttools5-dev-tools/usr/share/icons/hicolor/32x32/apps/linguist-qt5.png
+	install -D -p -m0644 src/linguist/linguist/images/icons/linguist-48-32.png \
+		debian/qttools5-dev-tools/usr/share/icons/hicolor/48x48/apps/linguist-qt5.png
+	install -D -p -m0644 src/linguist/linguist/images/icons/linguist-64-32.png \
+		debian/qttools5-dev-tools/usr/share/icons/hicolor/64x64/apps/linguist-qt5.png
+	install -D -p -m0644 src/linguist/linguist/images/icons/linguist-128-32.png \
+		debian/qttools5-dev-tools/usr/share/icons/hicolor/128x128/apps/linguist-qt5.png
+
+override_dh_link:
+	dh_link
+	ls debian/qttools5-dev-tools/usr/lib/qt5/bin | xargs -t -I {} \
+		dh_link -pqttools5-dev-tools usr/lib/qt5/bin/{} usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/{}
+	dh_link -pqdbus-qt5 usr/lib/qt5/bin/qdbus usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/qdbus
+	dh_link -pqdoc-qt5 usr/lib/qt5/bin/qdoc usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/qdoc
+	dh_link -pqhelpgenerator-qt5 usr/lib/qt5/bin/qhelpgenerator usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/qhelpgenerator
+	dh_link -pqtattributionsscanner-qt5 usr/lib/qt5/bin/qtattributionsscanner usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/qtattributionsscanner
+	dh_link -pqt5-assistant usr/lib/qt5/bin/assistant usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/assistant
+
+override_dh_auto_test-indep:
+
+override_dh_gencontrol:
+	dh_gencontrol -p qdbus -- -v4:$(DEB_VERSION)
+	dh_gencontrol --remaining-packages

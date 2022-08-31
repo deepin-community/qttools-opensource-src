@@ -1,0 +1,32 @@
+usr/lib/qt5/bin/designer
+usr/lib/qt5/bin/lconvert
+usr/lib/qt5/bin/linguist
+usr/lib/qt5/bin/lprodump
+usr/lib/qt5/bin/lrelease
+usr/lib/qt5/bin/lrelease-pro
+usr/lib/qt5/bin/lupdate
+usr/lib/qt5/bin/lupdate-pro
+usr/lib/qt5/bin/pixeltool
+usr/lib/qt5/bin/qcollectiongenerator
+usr/lib/qt5/bin/qdbusviewer
+usr/lib/qt5/bin/qdistancefieldgenerator
+usr/lib/qt5/bin/qtdiag
+usr/lib/qt5/bin/qtpaths
+usr/lib/qt5/bin/qtplugininfo
+usr/lib/*/qt5/plugins/designer/libqquickwidget.so
+usr/lib/*/qt5/plugins/designer/libqwebview.so
+usr/share/qt5/phrasebooks/danish.qph
+usr/share/qt5/phrasebooks/dutch.qph
+usr/share/qt5/phrasebooks/finnish.qph
+usr/share/qt5/phrasebooks/french.qph
+usr/share/qt5/phrasebooks/german.qph
+usr/share/qt5/phrasebooks/hungarian.qph
+usr/share/qt5/phrasebooks/italian.qph
+usr/share/qt5/phrasebooks/japanese.qph
+usr/share/qt5/phrasebooks/norwegian.qph
+usr/share/qt5/phrasebooks/polish.qph
+usr/share/qt5/phrasebooks/russian.qph
+usr/share/qt5/phrasebooks/spanish.qph
+usr/share/qt5/phrasebooks/swedish.qph
+debian/desktop/designer-qt5.desktop usr/share/applications/
+debian/desktop/linguist-qt5.desktop usr/share/applications/

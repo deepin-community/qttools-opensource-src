@@ -1,0 +1,7 @@
+{"Filepath":"include/QtDesigner/customwidget.h","Functions":null,"Records":[{"Name":"macro","Fields":["DEPRECATED_HEADER_QtDesigner_customwidget_h"]}]}
+{"Filepath":"include/QtDesigner/qdesignerexportwidget.h","Functions":null,"Records":[{"Name":"macro","Fields":["DEPRECATED_HEADER_QtDesigner_qdesignerexportwidget_h"]}]}
+{"Filepath":"include/QtDesigner/qtdesignerversion.h","Functions":null,"Records":[{"Name":"macro","Fields":["QTDESIGNER_VERSION","QTDESIGNER_VERSION_STR","QT_QTDESIGNER_VERSION_H"]}]}
+{"Filepath":"include/QtDesignerComponents/qtdesignercomponentsversion.h","Functions":null,"Records":[{"Name":"macro","Fields":["QTDESIGNERCOMPONENTS_VERSION","QTDESIGNERCOMPONENTS_VERSION_STR","QT_QTDESIGNERCOMPONENTS_VERSION_H"]}]}
+{"Filepath":"include/QtHelp/qthelpversion.h","Functions":null,"Records":[{"Name":"macro","Fields":["QTHELP_VERSION","QTHELP_VERSION_STR","QT_QTHELP_VERSION_H"]}]}
+{"Filepath":"include/QtUiPlugin/qtuipluginversion.h","Functions":null,"Records":[{"Name":"macro","Fields":["QTUIPLUGIN_VERSION","QTUIPLUGIN_VERSION_STR","QT_QTUIPLUGIN_VERSION_H"]}]}
+{"Filepath":"include/QtUiTools/qtuitoolsversion.h","Functions":null,"Records":[{"Name":"macro","Fields":["QTUITOOLS_VERSION","QTUITOOLS_VERSION_STR","QT_QTUITOOLS_VERSION_H"]}]}
