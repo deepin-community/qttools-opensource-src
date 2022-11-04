@@ -18,7 +18,7 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  Qt_5.8@Qt_5.8 5.9.0~beta3
  Qt_5.9@Qt_5.9 5.9.0~beta3
  Qt_5@Qt_5 5.6.0~beta
- Qt_5_PRIVATE_API@Qt_5_PRIVATE_API 5.6.0~beta
+ (symver)Qt_5_PRIVATE_API 0
  _Z20domPropertyToVariantP20QAbstractFormBuilderPK11QMetaObjectPK11DomProperty@Qt_5 5.6.0~beta
  _Z20domPropertyToVariantPK11DomProperty@Qt_5 5.6.0~beta
  _Z20variantToDomPropertyP20QAbstractFormBuilderPK11QMetaObjectRK7QStringRK8QVariant@Qt_5 5.6.0~beta
@@ -2446,7 +2446,6 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  _ZN7DomTime4readER16QXmlStreamReader@Qt_5 5.6.0~beta
  _ZN7DomTimeD1Ev@Qt_5 5.6.0~beta
  _ZN7DomTimeD2Ev@Qt_5 5.6.0~beta
- (optional=templinst)_ZN7QObject7connectIMS_FvPS_EM37QDesignerAbstractPropertySheetFactoryFvS1_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE@Qt_5 5.15.3
  _ZN8DomBrush15setElementColorEP8DomColor@Qt_5 5.6.0~beta
  _ZN8DomBrush16takeElementColorEv@Qt_5 5.6.0~beta
  _ZN8DomBrush17setElementTextureEP11DomProperty@Qt_5 5.6.0~beta
@@ -2496,9 +2495,6 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  _ZN8DomSlots4readER16QXmlStreamReader@Qt_5 5.6.0~beta
  _ZN8DomSlotsD1Ev@Qt_5 5.6.0~beta
  _ZN8DomSlotsD2Ev@Qt_5 5.6.0~beta
- (optional=templinst)_ZN8QVariant8setValueI5QSizeEEvRKT_@Qt_5 5.15.3
- (optional=templinst)_ZN8QVariant8setValueIN18qdesigner_internal22PropertySheetEnumValueEEEvRKT_@Qt_5 5.15.3
- (optional=templinst)_ZN8QVariant8setValueIN18qdesigner_internal22PropertySheetFlagValueEEEvRKT_@Qt_5 5.15.3
  _ZN9DomAction18setElementPropertyERK5QListIP11DomPropertyE@Qt_5 5.6.0~beta
  _ZN9DomAction19setElementAttributeERK5QListIP11DomPropertyE@Qt_5 5.6.0~beta
  _ZN9DomAction4readER16QXmlStreamReader@Qt_5 5.6.0~beta
@@ -2702,7 +2698,7 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  _ZNK18qdesigner_internal12IconSelector4iconEv@Qt_5 5.6.0~beta
  _ZNK18qdesigner_internal12ListContents14createTreeItemEPNS_17DesignerIconCacheE@Qt_5 5.6.0~beta
  _ZNK18qdesigner_internal12ListContents15applyToComboBoxEP9QComboBoxPNS_17DesignerIconCacheE@Qt_5 5.6.0~beta
- _ZNK18qdesigner_internal12ListContents17applyToListWidgetEP11QListWidgetPNS_17DesignerIconCacheEb@Qt_5 5.6.0~beta
+ _ZNK18qdesigner_internal12ListContents17applyToListWidgetEP11QListWidgetPNS_17DesignerIconCacheEb6QFlagsIN2Qt13AlignmentFlagEE@Qt_5 5.15.5
  _ZNK18qdesigner_internal12MetaDataBase10metaObjectEv@Qt_5 5.6.0~beta
  _ZNK18qdesigner_internal12MetaDataBase16metaDataBaseItemEP7QObject@Qt_5 5.6.0~beta
  _ZNK18qdesigner_internal12MetaDataBase4coreEv@Qt_5 5.6.0~beta
@@ -3212,9 +3208,6 @@ libQt5Designer.so.5 libqt5designer5 #MINVER#
  _ZNK9DomSpacer5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
  _ZNK9DomString5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
  _ZNK9DomWidget5writeER16QXmlStreamWriterRK7QString@Qt_5 5.6.0~beta
- (optional=templinst)_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag@Qt_5 5.15.3
- (optional=templinst)_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_@Qt_5 5.15.3
- (optional=templinst)_ZSt20get_temporary_bufferIP7QWidgetESt4pairIPT_lEl@Qt_5 5.15.3
  _ZTI12QFormBuilder@Qt_5 5.6.0~beta
  _ZTI12QTextBuilder@Qt_5 5.6.0~beta
  _ZTI13QDesignerMenu@Qt_5 5.6.0~beta
