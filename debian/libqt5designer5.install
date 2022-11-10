@@ -1,1 +1,1 @@
-usr/lib/*/libQt5Designer.so.5*
+usr/lib/${DEB_HOST_MULTIARCH}/libQt5Designer.so.5*
