@@ -1,6 +1,7 @@
 qttools-opensource-src (5.15.8-1+dde) UNRELEASED; urgency=medium
 
   * New upstream release (5.15.8).
+  * Add libqt5webkit5-dev qtdeclarative5-private-dev B-Ds.
 
  -- Lu YaNing <luyaning@uniontech.com>  Sat, 28 Jan 2023 18:04:11 +0800
 
