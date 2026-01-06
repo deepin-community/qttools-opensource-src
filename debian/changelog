@@ -1,3 +1,9 @@
+qttools-opensource-src (5.15.8-1+deepin2) unstable; urgency=medium
+
+  * add rebuild.
+
+ -- lichenggang <lichenggang@deepin.org>  Tue, 06 Jan 2026 17:18:06 +0800
+
 qttools-opensource-src (5.15.8-1+dde1) unstable; urgency=medium
 
   * Enable qtdoc for loong64
